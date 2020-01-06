@@ -21,7 +21,10 @@ router.post('/register', (req, res) => {
 
        userDB.addUser(body)
        .then(user => {
-           res.status(201).json(user)
+
+        const token = signToken(user)
+
+           res.status(201).json({user, token})
        })
        .catch(err => {
            res.status(500).json({
@@ -49,7 +52,7 @@ router.post('/login', (req, res) =>{
                 res.status(201).json({
                     message: `Welcome back ${user.name}`,
                     token,
-                    // user
+                    user
                 })
 
             }else{
