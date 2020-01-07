@@ -40,8 +40,8 @@ router.get('/:id/kid', restricted, (req, res) =>{
 })
 
 router.post('/:id/kid', restricted, (req, res) =>{
-    const body = req.body;
     const id = req.params.id;
+    const body = req.body;
 
     if(!body.food_name || !body.food_type){
         res.status(400).json({

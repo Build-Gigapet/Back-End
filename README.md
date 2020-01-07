@@ -5,6 +5,8 @@
 
 ## Endpoints Table 
 
+# Users
+
 | Type    | EndPoints  |
 | ------- |:---------:|
 | Post [register]   | /api/auth/register |
@@ -12,15 +14,24 @@
 | Get [Users]       | /api/auth/users  |
 | Put [User]        | /api/auth/:id |
 | Delete   [User]   | /api/auth/:id |
+
+# Kids
+| Type | EndPoints  |
+| ------- | :------:   |
 | Get [All Kids]    | /api/kid |
 | Get [Kid by ID]   | /api/kid/:id |
 | Get [Kid by User] | /api/kid/:id/user|
 | Post [Kid]        | /api/kid/:id/user |
 | Put [Kid]         | /api/kid/:id |
 | Delete [Kid]      | /api/kid/:id |
+
+# Foods
+| Type | EndPoints  |
+| ------- | :------:   |
 | Get [All Food]    | /api/food |
 | Get [Food by ID]  | /api/food/:id|
 | Get [Food by Kid] | /api/food/:id/kid|
+| Post [Food]       | /api/food/:id/kid |
 | Put [Food]        | /api/food/:id|
 | Delete [Food]     | /api/food/:id |
 
@@ -34,7 +45,7 @@
 
 ```
 	"name": "test3",             [required]
-	"email": "test3@gmail.com",
+	"email": "test3@gmail.com",  [required]
 	"password": "test3"          [required]
 ```
 
@@ -66,7 +77,7 @@
 ### output
 ```
   "message": "Welcome back test3",
-
+  "id": "1"
   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiamFjayIsImlhdCI6MTU3ODI4NjExNywiZXhwIjoxNTc4MzE4NTE3fQ.nw9tthfttnJbflqi-3Zip8_VbDGRcH37HE0UnQfrSdA"
 ```
 ***
@@ -424,6 +435,32 @@
 ]
 
 ```
+***
+## Add Food
+ - https://build-gigapet.herokuapp.com/api/food/:id/kid
+
+ ### Note: The id has to be kids id for that kid foods
+
+ ### input
+
+ ```
+{
+	"food_name": "pizza",
+	"food_type": "snack",
+	"date": " 01-07-2020"
+}
+ ```
+
+ ### output
+ ```
+{
+  "message": "Your Kids food has been added",
+  "add": {
+    "id": 15
+  }
+}
+ ```
+
 ***
 
 ## Update Food
