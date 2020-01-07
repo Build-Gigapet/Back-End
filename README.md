@@ -20,6 +20,8 @@
 | Delete [Kid]      | /api/kid/:id |
 | Get [All Food]    | /api/food |
 | Get [Food by ID]  | /api/food/:id|
+| Get [Food by Kid] | /api/food/:id/kid|
+| Put [Food]        | /api/food/:id|
 | Delete [Food]     | /api/food/:id |
 
 ***
@@ -393,6 +395,56 @@
   "kid_id": 1
 }
  ```
+***
+## Food by Kid
+ - https://build-gigapet.herokuapp.com/api/food/:id/kid
+
+ ### Note: The id has to be kids id for that kid foods
+
+```
+[
+  {
+    "id": 1,
+    "food_name": "Spinach",
+    "food_type": "vegetables",
+    "date": "01-06-2020",
+    "kid_id": 1,
+    "kid_name": "Florence",
+    "score": 12
+  },
+  {
+    "id": 2,
+    "food_name": "Chickpea ",
+    "food_type": "meat",
+    "date": "01-06-2020",
+    "kid_id": 1,
+    "kid_name": "Florence",
+    "score": 12
+  }
+]
+
+```
+***
+
+## Update Food
+
+ - https://build-gigapet.herokuapp.com/api/food/:id
+
+ ### input
+ ```
+{
+	"food_name": "chicken salad",
+	"food_type": "meat"
+}
+ ```
+
+ ### output
+  ```
+{
+  "message": "Your kids food has been updated"
+}
+  ```
+
 
  ***
  ## Delete Food
