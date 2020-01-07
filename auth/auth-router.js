@@ -51,8 +51,9 @@ router.post('/login', (req, res) =>{
 
                 res.status(201).json({
                     message: `Welcome back ${user.name}`,
-                    token,
-                    user
+                    id: `${user.id}`,
+                    token
+                    
                 })
 
             }else{
@@ -78,7 +79,7 @@ router.delete('/:id', restricted, (req, res) => {
     userDB.deleteUser(id)
     .then(deleted => {
         if (deleted) {
-          res.status(200).json({ mess: `${id} was removed from project` });
+          res.status(200).json({ message: `${id} was removed from project` });
         } else {
           res.status(404).json({ message: 'Could not find scheme with given id' });
         }
@@ -86,6 +87,40 @@ router.delete('/:id', restricted, (req, res) => {
       .catch(err => {
         res.status(500).json({ message: 'Failed to delete scheme' });
       });
+})
+
+router.get('/users', restricted,(req, res) =>{
+    userDB.allUser()
+    .then(users =>{
+        res.status(200).json(users)
+    })
+    .catch(err =>{
+        res.status(500).json({
+            error: 'Can not get all the users'
+        })
+    })
+})
+
+router.put('/:id', restricted, (req, res) =>{
+    const body = req.body;
+
+    if(!body.name){
+        res.status(400).json({
+            error: 'please proved your name'
+        })
+    }else{
+        userDB.updateUser(req.params.id, body)
+        .then(update =>{
+            res.status(200).json({
+                message: 'users has been updated'
+            })
+        })
+        .catch(err =>{
+            res.status(500).json({
+                error: 'can not update the User'
+            })
+        })
+    }
 })
 
 function signToken(user){
@@ -102,5 +137,6 @@ function signToken(user){
 
     return jwt.sign(payload, secret, options)
 }
+
 
 module.exports = router;

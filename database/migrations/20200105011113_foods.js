@@ -9,8 +9,6 @@ exports.up = function(knex) {
 
         table.date('date').notNullable();
 
-        table.time('time').notNullable();
-
         table.integer('kid_id')
             .notNullable()
             .unsigned()
@@ -23,5 +21,5 @@ exports.up = function(knex) {
 };
 
 exports.down = function(knex) {
-    return knex.schema.dropTableIfExists('food');
+    return knex.schema.dropTableIfExists('foods');
 };

@@ -3,7 +3,7 @@ exports.up = function(knex) {
   return knex.schema.createTable('kids', table =>{
       table.increments();
 
-      table.string('name', 50).notNullable();
+      table.string('kid_name', 50).notNullable();
 
       table.integer('age', 3).notNullable();
 
