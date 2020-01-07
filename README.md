@@ -18,6 +18,9 @@
 | Post [Kid]        | /api/kid/:id/user |
 | Put [Kid]         | /api/kid/:id |
 | Delete [Kid]      | /api/kid/:id |
+| Get [All Food]    | /api/food |
+| Get [Food by ID]  | /api/food/:id|
+| Delete [Food]     | /api/food/:id |
 
 ***
 
@@ -325,3 +328,80 @@
   "removed": 1
 }
  ```
+***
+## All Food
+
+ - https://build-gigapet.herokuapp.com/api/food
+
+ ```
+[
+  {
+    "id": 1,
+    "food_name": "Spinach",
+    "food_type": "vegetables",
+    "date": "01-06-2020",
+    "kid_id": 1
+  },
+  {
+    "id": 2,
+    "food_name": "Chickpea ",
+    "food_type": "meat",
+    "date": "01-06-2020",
+    "kid_id": 1
+  },
+  {
+    "id": 3,
+    "food_name": "Swordfish ",
+    "food_type": "meat",
+    "date": "01-06-2020",
+    "kid_id": 2
+  },
+  {
+    "id": 4,
+    "food_name": "Pineapple ",
+    "food_type": "fruit",
+    "date": "01-06-2020",
+    "kid_id": 2
+  },
+  {
+    "id": 5,
+    "food_name": "Frangelico",
+    "food_type": "vegetables",
+    "date": "01-06-2020",
+    "kid_id": 3
+  },
+  {
+    "id": 6,
+    "food_name": "Monkfish ",
+    "food_type": "meat",
+    "date": "01-06-2020",
+    "kid_id": 4
+  }
+]
+ ```
+
+ ***
+ ## Food by ID
+ - https://build-gigapet.herokuapp.com/api/food/:id
+
+ ```
+{
+  "id": 1,
+  "food_name": "Spinach",
+  "food_type": "vegetables",
+  "date": "01-06-2020",
+  "kid_id": 1
+}
+ ```
+
+ ***
+ ## Delete Food
+
+  - https://build-gigapet.herokuapp.com/api/food/:id
+
+### output 
+  ```
+  {
+    "message": "You have throw that food successfully"
+  }
+  ```
