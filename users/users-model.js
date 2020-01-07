@@ -4,6 +4,7 @@ module.exports = {
     allUser,
     FindByName,
     addUser,
+    updateUser,
     deleteUser
 }
 
@@ -25,6 +26,10 @@ function addUser(data){
 
 function userId(id){
     return database('users').select('id', 'name', 'email').where({ id }).first()
+}
+
+function updateUser(id, body){
+    return database('users').where('id', Number(id)).update(body);
 }
 
 function deleteUser(id){
