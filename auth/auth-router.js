@@ -11,9 +11,9 @@ router.post('/register', (req, res) => {
     const body = req.body;
     const hash = bcrypt.hashSync(body.password, 8);
 
-   if(!body.name || !body.password ){
+   if(!body.name || !body.password || !body.email){
        res.status(400).json({
-            message: 'please provied name and password'
+            message: 'please provied name and password and email'
        })
    }else{
         
